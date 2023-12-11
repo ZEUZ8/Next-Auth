@@ -14,10 +14,7 @@ export async function POST(request = NextRequest){
         console.log(reqBody)
 
         //check if user exists
-        const chumma = await User.find()
-        console.log(chumma, 'the user')
         const existingUser = await User.findOne({email:email})
-        console.log(existingUser,' user')
         if(!existingUser){
             return NextResponse.json({error:"user does not exist"},{status:400})
         }

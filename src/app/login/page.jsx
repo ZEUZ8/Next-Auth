@@ -27,8 +27,7 @@ export default function LoginPage() {
   const onLogin = async () => {
     try{
       setLoading(true)
-      const response = await axios.post("/api/users/login",user)
-      console.log(response,' the response in the client side and still waiting for the backend')
+      await axios.post("/api/users/login",user)
       toast.success("Login success")
       router.push("/profile")
     }catch(error){
